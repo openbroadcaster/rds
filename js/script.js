@@ -21,9 +21,7 @@
       if (idName == "storeAll" ) {
 
             
-
-                  
-                
+  
         
        
 
@@ -55,10 +53,10 @@
 
 
 
-
+              // Here Im using underscore Js library which is already loaded 
             var er = _.compact(_.map(pira(),function(value,key) {
                
-               if(value != "" || value != false ) return  key + "=" + value;               
+                 if(value != "" || value != false ) return  key + "=" + value;               
 
                  }));
 
@@ -90,7 +88,7 @@
                 };
 
 
-
+                
                 
 
 
@@ -111,10 +109,17 @@
                   
 
                     var data = {};
+					
+					 var sName = document.getElementById("sessionName").value;
 
-                    data.datetime = "ahi schii ke lindo";
+                    // data.datetime = "";
                     data.commands = basics;
-
+                    data.sessionName = sName;
+					
+					
+					
+					
+					
 
                     // fire off the request to 
                   request = $.ajax({
@@ -128,6 +133,7 @@
                       // log a message to the console
                     //  console.log("Hooray, it worked!");
                     alert(response);
+					
                   });
 
                   // callback handler that will be called on failure
@@ -137,6 +143,8 @@
                           "The following error occured: "+
                           textStatus, errorThrown
                       );
+					  
+					  info.value="Error occured, sorry please try again.."
                   });
 
                   // callback handler that will be called regardless

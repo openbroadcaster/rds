@@ -11,7 +11,7 @@
 {
 
 	public $name = 'RDS Module';
-	public $description = ' RADIO DATA SYSTEM module for OB ';
+	public $description = ' RDS module for OB ';
 
 	public function callbacks()
 	  {

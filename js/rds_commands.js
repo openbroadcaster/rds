@@ -161,7 +161,8 @@
    
    
    
-var UECP = {
+var UECP = function() { 
+  return {
                                   
                                   
   // the u infront of MECs most be taking way 
@@ -173,7 +174,7 @@ var UECP = {
   u03 : "",    // TAfl‘P
   u04 : "",    // Dl/PTYI
   u05 : "",    // MS
-  u06 : "hola ninooo",    // PIN
+  u06 : "",    // PIN
   u07 : "",    // PTY
   u08 : "",    // Paging call with numeric message (10 digits)
   u09 : "",    // Real time clock correction
@@ -237,7 +238,7 @@ var UECP = {
   uDA : ""    // DVB-S: Rass - Radio screen show
   // EC to FC 108 Astra ADR special commands (Reserved range)                                
                                   
-       
+     }  
         };
              
              

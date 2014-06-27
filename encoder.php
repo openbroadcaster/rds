@@ -8,41 +8,52 @@
 
 
 
-//  commands is a string coming from the form that need to be split 
-// when is retrieved and it is sent to the encoder (that will be using python) 
+/*  $commands is a string coming from the form that need to be split 
+  before sending to the encoder (using python) 
+*/
 
 
 
-
-$datetime  = date("F j, Y, g:i a")  //      $_POST["datetime"];
+$datetime  = date("F j, Y, g:i a") ; 
   
-//$user_id = $_POST["user_id"];
+$user_id = "userTEST";  // ?????   < THIS IS THE USER IN THE PHP SESSION,PLEASE CHANGE IT
 
-//$sessionname = $_POST["sessionname"];
+$sessionname = $_POST["sessionname"];
 
 $commands = $_POST["commands"];
 
 
 
 
+$query = "INSERT INTO rdsmodule (datetime , user_id , sessionname , commands) 
+         VALUES ('".$datetime."', '". $user_id ."', '".$sessionname ."', '". $commands."')";
+
+
+		 
+		 
+		 
+		 
+	class storingRDS extends OBFModule {
+	
+	    public function storeRDS()	{
+		$this->db->query($query);
+
+		return true;
+
+	   }
+	
+	
+	}	 
+		 
+		 
 
 
 
 
-//$query = "INSERT INTO rdsmodule (datetime , user_id , sessionname , commands) 
- //         VALUES ('".$datetime."', '". $user_id ."', '".$sessionname ."', '". $commands."')";
 
 
 
-
-
-
-
-
-
-
-
-
+// the NEXT CODE WAS JUST FOR TESTING in my LOCAL SERVER ... please feel free to delete
 
 
 
@@ -52,14 +63,7 @@ defined('DB_PASS')? NULL : define("DB_PASS", "");
 defined('DB_NAME')? NULL : define("DB_NAME", "rdsmodule");
 
 
-  
 
-
-
-
-
-
-// extends OBFModule
 
 class storeCommands  {
 
@@ -135,16 +139,7 @@ class storeCommands  {
 
 
 
-//$st = new storeCommands();
-
-
-// to use this uncomment the commented code in store method in storeCommands class 
-// $st->open_connection();
-
-//$st->store($query);
-
-
-echo  $commands;
+// echo  $commands;
 
 
 
